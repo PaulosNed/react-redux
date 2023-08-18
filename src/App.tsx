@@ -1,4 +1,3 @@
-import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import TodoFilter from "./components/TodoFilter";
@@ -7,10 +6,12 @@ function App() {
   return (
     <div className="min-h-screen bg-blue-500 p-10">
       <div className="flex flex-col gap-5">
+        {/* header */}
         <p className="w-full text-center text-white font-bold text-3xl">
           Taskify
         </p>
 
+        {/* Input field section */}
         <div className="w-full">
           <TodoForm />
         </div>

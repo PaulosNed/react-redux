@@ -10,18 +10,22 @@ import { connect, ConnectedProps } from 'react-redux';
 import { toggleTodo, deleteTodo } from '../actions/todoActions';
 import { RootState } from '../reducers/rootReducer';
 
+// to map the states in redux to our components
 const mapState = (state: RootState) => ({
   todos: state.todos,
   currentFilter: state.filter 
 });
 
+// to map the action creators to our component code
 const mapDispatch = {
   toggleTodo: (id: number) => toggleTodo(id),
   deleteTodo: (id: number) => deleteTodo(id)
 };
 
+// To connect our component to the states and action creators mapped above
 const connector = connect(mapState, mapDispatch);
 
+// to define what props our component should expect
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const TodoList: React.FC<PropsFromRedux> = ({ todos, toggleTodo, deleteTodo, currentFilter }) => {
@@ -38,6 +42,8 @@ const TodoList: React.FC<PropsFromRedux> = ({ todos, toggleTodo, deleteTodo, cur
           data-testid="task-item"
           className="w-full bg-yellow-300 transform transition-all hover:outline-2 hover:outline-black duration-500 p-6 rounded-lg shadow-md"
         >
+
+          {/* Todo's Description */}
           <div className="flex justify-between items-center">
             <div>
               <div
@@ -47,6 +53,7 @@ const TodoList: React.FC<PropsFromRedux> = ({ todos, toggleTodo, deleteTodo, cur
                 {todo.description}
               </div>
             </div>
+
             <div className="flex gap-2 items-center">
               {/* Delete Task Section */}
               <span

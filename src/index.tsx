@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./reducers/rootReducer";
 
+// initiate the redux store
 const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(
@@ -14,6 +15,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    {/* connect the store to our root component */}
     <Provider store={store}>
       <App />
     </Provider>

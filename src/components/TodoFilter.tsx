@@ -16,11 +16,14 @@ const connector = connect(mapState, mapDispatch);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const TodoFilter: React.FC<PropsFromRedux> = ({ currentFilter, setFilter }) => {
+
+  // change the filter state on the redux store
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value);
   };
 
   return (
+    // Select options for the drop down
     <select name="" id="" onChange={handleChange} value={currentFilter}>
       <option value="all">All</option>
       <option value="active">Active</option>

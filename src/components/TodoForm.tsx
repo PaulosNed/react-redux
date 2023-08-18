@@ -7,8 +7,10 @@ const connector = connect(null, { addTodo });
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const TodoForm: React.FC<PropsFromRedux> = ({ addTodo }) => {
+  // to handle input of Todo description
   const [text, setText] = useState("");
 
+  // to add a new task from input
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (text.trim() !== "") {
@@ -18,6 +20,7 @@ const TodoForm: React.FC<PropsFromRedux> = ({ addTodo }) => {
   };
 
   return (
+    // form/input section
     <div className="w-full bg-white p-1 rounded-full">
       <div className="w-full flex rounded-full pl-4">
         <input
